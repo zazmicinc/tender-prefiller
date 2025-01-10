@@ -1,8 +1,7 @@
-import os
 import base64
 import streamlit as st
+st.title("Tender Document Automation")
 import google.generativeai as genai
-
 if 'API_KEY' not in st.session_state:
     st.session_state['API_KEY'] = ''
 
@@ -16,7 +15,6 @@ def encode_file_to_base64(file):
     return base64.standard_b64encode(file.read()).decode("utf-8")
 
 # Streamlit App Layout
-st.title("Tender Document Automation")
 st.write("Upload a Request for Tender (RFT) document and a Tender Response Document (TRD). The app will prefill the TRD using the information from the RFT.")
 
 if not st.session_state['API_KEY']:
